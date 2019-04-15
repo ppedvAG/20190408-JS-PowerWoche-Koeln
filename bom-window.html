@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BOM window object</title>
+</head>
+<body>
+
+<!--     (h3{$. Property / Method}+button[onclick=""]{demonstrate}+p#output$)*5 -->
+<h3>1. Method alert()</h3>
+<button onclick="alert('Method alert ausgelöst');">demonstrate</button>
+
+
+<h3>2. Method prompt()</h3>
+<button onclick="demonstratePrompt()">demonstrate</button>
+<p id="output2"></p>
+
+<h3>3. Method confirm()</h3>
+<button onclick="demonstrateConfirm()">demonstrate</button>
+<p id="output3"></p>
+
+<h3>4. Method setTimeout()</h3>
+<button onclick="demonstrateSetTimeout()">demonstrate</button>
+
+
+<h3>5. Method setInterval() & clearInterval()</h3>
+<button onclick="demonstratesetInterval()">demonstrate</button>
+<button onclick="clearInterval(intervalID)">stop demonstration</button>
+<p>in FF fängt es mit 2 an, in Chrome mit 1</p>
+<p id="output5"></p>
+
+<h3>Methods open(), blur(), focus() & close()</h3>
+<p>open: FF und Chrome akzeptieren Breite und Höhe, Edge nicht</p>
+<p>close: nicht in Edge</p>
+<p>focus: nicht in Edge</p>
+<p>blur: nicht in Edge</p>
+<button onclick="demonstrateOpen()">open</button>
+<button onclick="demonstrateBlur()">blur</button>
+<button onclick="demonstrateFocus()">focus</button>
+<button onclick="demonstrateClose()">close</button>
+
+    <script>
+        window.console.log("Methode log vom Objekt Console vom Objekt Window");
+
+        function demonstratePrompt() {
+            let jahre = prompt('Geben Sie Ihr Alter ein!');
+            output2.innerHTML = "Eingegebene Zahl: " + jahre;
+        }
+
+        function demonstrateConfirm() {
+            let conf = window.confirm('Drücke auf OK');
+            output3.innerHTML = "Rückgabewert von confirm: " + conf;
+        }
+
+        function demonstrateSetTimeout() {
+            window.setTimeout('window.confirm("ich erscheine nach 2 sekunden")', 2000);
+        }
+
+        var intervalID;
+        function demonstratesetInterval() {
+            intervalID = setInterval('window.confirm("ich erscheine jede 3 sekunden")', 3000);
+            output5.innerHTML = "intervalID: " + intervalID;
+        }
+
+        var myWindow;
+        function demonstrateOpen() {
+            myWindow = open("https://ppedv.de", "_blank", "width=400, height=500");
+        }
+        function demonstrateClose() {
+            myWindow.close();
+        }
+        function demonstrateBlur() {
+            myWindow.blur();
+        }
+        function demonstrateFocus() {
+            myWindow.focus();
+        }
+
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>jQ events</title>
+    
+</head>
+<body>
+    <!-- p{Klick mich$}*3 -->
+    <p>Klick mich</p>
+    <p>Klick mich</p>
+    <p>Klick mich</p>
+    <input id="inp" type="text">
+    <input type="text">
+    <input type="text">
+    <div id="divId"></div>
+
+    <script>
+        $(function (){
+            /* Event gehört nur zu einem Objekt, 
+            deswegen verschwindet nur ein Element */
+            $('p').click(function() {
+                $(this).hide();
+            });
+            /* tritt ein, nachdem Kursor im Input gewesen war */
+            $('input').blur(function(){
+                //alert('Bitte das Feld ausfüllen!');
+                //$(this).css('background-color', 'red');
+                $(this).css('bordercolor', 'red');
+                //$(this).css('backgroundColor', 'red');
+            });
+        });
+        console.log(inp);
+
+        
+    </script>
+    
+</body>
+</html>

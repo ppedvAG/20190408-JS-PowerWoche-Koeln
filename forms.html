@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Formulare</title>
+  </head>
+  <body>
+    <!-- (div>label[for="inp$"]+input#inpID$[name="inp$"])*10 -->
+    <!-- mit for="inpID" lassen sich inputs über click auf label auch selektieren -->
+    <form action="#">
+      <h3>fieldset zum Gruppieren von inputs</h3>
+      <fieldset>
+        <legend>Name</legend>
+        <div>
+          <label for="firstname">Vorname: </label>
+          <input
+            type="text"
+            id="fname"
+            name="firstname"
+            placeholder="Max"
+            value="Max"
+          />
+        </div>
+        <!-- Attribut value setzt nur Anfangswert, bis Eingabe geändert wurde -->
+        <div>
+          <label for="lastname">Nachname: </label
+          ><input
+            type="text"
+            id="lname"
+            name="lastname"
+            placeholder="Mustermann"
+          />
+        </div>
+      </fieldset>
+      <hr />
+      <h3>Attribut pattern</h3>
+      <!-- title für tooltip -->
+      <div>
+        <label for="inp1">Telefonnummer: </label
+        ><input
+          type="text"
+          id="inpID1"
+          name="inp1"
+          pattern="\+49\d{11,12}"
+          title="min 11 Zeichen mit +49 am Anfang"
+          oninput="check(this);"
+        />
+        <!-- kein Leerzeichen zwischen 11 und 12! -->
+        <!-- checkValidity() - es existiert so eine Funktion, die beim Überschreiben Fehler aufruft, angezeigt in Edge -->
+      </div>
+
+      <h3>min max & try catch</h3>
+      <div>
+        <label for="inp2">Ihr Alter: </label
+        ><input type="number" id="inpID2" name="inp2" min="1" max="120" />
+        <button type="button" onclick="trycatch()">OK</button>
+        <p id="outputAlter"></p>
+      </div>
+      <hr />
+
+      <h3>input type color</h3>
+      <div>
+        <label for="inp3">Colorpicker: </label
+        ><input type="color" id="inpID3" name="inp3" />
+      </div>
+      <hr />
+
+      <h3>input type date</h3>
+      <div>
+        <label for="inp4"></label><input type="date" id="inpID4" name="inp4" />
+      </div>
+      <hr />
+      <h3>input type radio / radio box</h3>
+      <div>
+        <!-- mit for="inpID" lassen sich inputs über click auf label auch selektieren -->
+        <label for="inpID5">Herr</label
+        ><input type="radio" id="inpID5" name="inp5" />
+      </div>
+      <div>
+        <label for="inpID6">Frau</label
+        ><input type="radio" id="inpID6" name="inp5" />
+      </div>
+      <hr />
+
+      <h3>input type checkbox</h3>
+      <h4>Pizza extras:</h4>
+      <div>
+        <input type="checkbox" id="cheese" name="inp7" /><label for="cheese"
+          >Käse</label
+        >
+      </div>
+      <div>
+        <input type="checkbox" id="salami" name="inp8" /><label for="salami"
+          >Salami</label
+        >
+      </div>
+      <div>
+        <input type="checkbox" id="mushrooms" name="inp9" /><label
+          for="mushrooms"
+          >Pilze</label
+        >
+      </div>
+      <div>
+        <input type="checkbox" id="pineapple" name="inp10" /><label
+          for="pineapple"
+          >Ananas</label
+        >
+      </div>
+      <hr />
+
+      <h3>select - option / dropdown menu</h3>
+      <h4>Smoothie-Zutaten</h4>
+      <select name="obst" id="obstSelect" onchange="changeColor()">
+        <option value="kiwi">Kiwi</option>
+        <option value="apple">Apfel</option>
+        <option value="pear">Birne</option>
+        <option value="pumpkin">Kürbis</option>
+      </select>
+      <hr />
+
+      <h3>datalist</h3>
+      <!-- div>label+input+datalist>option[value="" label=""]*3 -->
+      <h4>Auswahl aus einer Liste, Values aus einer anderen</h4>
+      <div>
+        <label for="laeden">Wie möchtes Sie einkaufen? </label
+        ><input
+          type="text"
+          list="shops"
+          id="laeden"
+          placeholder="teuer, günstig, sehr günstig"
+        />
+        <datalist id="shops">
+          <option value="Rewe" label="teuer"></option>
+          <option value="Penny" label="günstig"></option>
+          <option value="Aldi" label="sehr günstig"></option>
+        </datalist>
+      </div>
+      <hr />
+
+      <h3>auf Enter-Taste reagieren, event object</h3>
+      <div>
+        <label for="pw"></label
+        ><input
+          type="password"
+          id="pw"
+          pattern="^[a-zA-Z]\w{3,14}$"
+          onkeypress="checkEnter(event, this)"
+          title="The password's first character must be a letter, it must contain at least 4 characters and no more than 15 characters and no characters other than letters, numbers and the underscore may be used"
+        />
+        <p id="outputPW"></p>
+      </div>
+      <hr />
+
+      <h3>input type range</h3>
+      <div>
+        <label for="inpRange"></label
+        ><input
+          type="range"
+          id="inpRange"
+          value="70"
+          min="20"
+          max="200"
+          step="5"
+          oninput="showPrice()"
+        />
+        <p id="outputRange"></p>
+      </div>
+    </form>
+
+    <p id="output"></p>
+
+    <script>
+      obstSelect.style.backgroundColor = "rgb(155, 102, 102)";
+      function changeColor() {
+        //style.backgroundColor = "";
+      }
+      function check(obj) {
+        output.textContent = obj.validity.valid + " " + obj.validationMessage;
+      }
+
+      function trycatch() {
+        let inpValue = inpID2.value;
+        console.log("inpValue am Anfang der Funktion: " + inpValue);
+        /* try {
+              if () throw "";
+          } catch (err) {
+
+          } finally {
+
+          } */
+        let err;
+        try {
+          if (inpValue < 18)
+            throw "Für Personen unter 18 gibt es extra Marathon";
+          //
+          //if (inpValue > 1) throw "";
+          //ab 90 nicht zugelassen
+          //if (inpValue > 1) throw "";
+          //wenn keine Zahl eingegeben
+          if (isNaN(inpValue)) throw "Geben Sie eine Zahl ein";
+          //if (!inpValue) throw "";
+          //wenn größer als 120
+          //if (inpValue > 1) throw "";
+          //wenn kleiner als 1
+          //if (inpValue > 1) throw "";
+        } catch (err) {
+          outputAlter.innerHTML = "Meldung von err: " + err;
+          this.err = err;
+        } finally {
+          /* in finally wird immer reingegangen */
+          if (this.err) {
+            inpID2.value = "";
+          }
+          setTimeout(
+            'outputAlter.innerHTML = "Willkommen bei Marathon";',
+            3000
+          );
+          //console.log("err in finally" + this.err);
+
+          /* inpValue = "";
+              inpID2.value = "";
+              //console.log("inpValue in finally: " + inpValue);*/
+        }
+      }
+
+      function checkEnter(ev, inpObj) {
+        console.log(inpObj.validity);
+        if (ev.keyCode == 13 && inpObj.value != "") {
+          if (inpObj.checkValidity() == false) {
+            outputPW.innerHTML = inpObj.validationMessage;
+          } else {
+            outputPW.innerHTML = "PW passt";
+          }
+        }
+        //bei Enter im leeren Feld auch validity true, deswegen  (&& inpObj.value != "")
+      }
+      function showPrice() {
+          outputRange.textContent = "der aktuelle Preis: " + inpRange.value + ", min: " + inpRange.min + ", max: " + inpRange.max;
+      }
+      showPrice();
+    </script>
+  </body>
+</html>

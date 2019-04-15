@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CSS Selektoren</title>
+    <style>
+      h1,
+      p {
+        color: green;
+      }
+      /* alle p nach h1 */
+      p p {
+        color: rgb(0, 81, 128);
+      }
+      /* alle p's innerhalb einer div */
+      div > p {
+        color: sandybrown;
+      }
+      /* alle kind (und auch enkelelemente) span in div*/
+      div > span {
+        color: seagreen;
+      }
+
+      /* nur span, unmittelbares kind von div */
+      p + span {
+        color: sienna;
+      }
+      div span {
+        color: rgba(9, 0, 128, 0.829);
+      }
+      .special {
+        color: salmon;
+      }
+      /* nur die span's, Geschwister (Nachbarn) von div */
+      div ~ span {
+        font-size: 2em;
+      }
+      p:not(.special) {
+          border: thick solid burlywood;
+      }
+      /* oder */
+      p:not([class="special"]) {
+          border: thin solid burlywood;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Heading1 1</h1>
+    <h1>Heading1 2</h1>
+    <p>Paragraph 1</p>
+    <h1>Heading1 3</h1>
+    <p class="special">special Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <p>Paragraph 3</p>
+    <div>
+      <p>
+        Paragraph in Div 1
+        <span>span in p in div</span>
+      </p>
+      <span>span in div</span>
+      <p class="special">special Paragraph in Div 2</p>
+    </div>
+    <div>
+      <div>division in div</div>
+      <span>span in div</span>
+      <span>span in div</span>
+      <div>division in div</div>
+    </div>
+  </body>
+</html>

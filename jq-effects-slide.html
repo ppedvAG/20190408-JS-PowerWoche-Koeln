@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Slide effect</title>
+    <style>
+        div {
+            border: 2px solid midnightblue;
+            padding: 1.5em;
+        }
+        #div2 {
+            display: none;
+        }
+    
+    </style>
+</head>
+<body>
+   <!--  div#div${Klick hier}*4 -->
+   <div id="div1">Klick hier</div>
+   <div id="div2">Zusatzuinfos</div>
+   <div id="div3">Klick hier</div>
+   <div id="div4">Überflüssige Infos</div>
+
+    <script>
+        $(function() {
+            $('#div1').click(function(){
+                $('#div2').slideDown();
+            });
+            $('#div3').click(function(){
+                $('#div4').slideUp();
+            });
+        });
+
+    </script>
+
+
+    
+</body>
+</html>

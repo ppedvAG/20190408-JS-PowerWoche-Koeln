@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>jQ DOM Methoden</title>
+</head>
+<body>
+        <h3>8. Property plugins</h3>
+    <p id="output8"></p>
+    <p id="output8_1"></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Filename</th>
+                <th>Description</th>
+                <th>Version</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+        //selector.appendTo()
+        //prependTo()
+        //insertBefore()
+        //insertAfter()
+        $(function(){
+            $('tbody').html('<td>test</td>');
+        });
+
+    
+    output8.innerHTML = "" + navigator.plugins;
+        output8_1.innerHTML =
+        'Plugin(s) <br>' +
+        '<table id="pluginTable"><thead>' +
+        '<tr><th>Name</th><th>Filename</th><th>Description</th><th>Version</th></tr>'+
+        '</thead><tbody></tbody></table>';
+
+        let table = pluginTable;
+
+        for (let i = 0; i < navigator.plugins.length; i++) {
+            let newRow = table.insertRow();
+            newRow.insertCell().textContent = navigator.plugins[i].name;
+            newRow.insertCell().textContent = navigator.plugins[i].filename;
+            newRow.insertCell().textContent = navigator.plugins[i].description;
+            newRow.insertCell().textContent = navigator.plugins[i].version;
+        } 
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Objekt Date</title>
+</head>
+<body>
+    <!-- (h3{$. Method}+p#output$)*6 -->
+    <h3>1. Instanz von Objekt Date</h3>
+    <p id="output1"></p>
+
+    <h3>2. Method getDate()</h3>
+    <p>Rückgabewert: 1 - 31</p>
+    <p id="output2"></p>
+
+    <h3>2. Method getDay()</h3>
+    <p>Rückgabewert: 0 - 6, 0 bei Sonntag</p>
+    <p id="output3"></p>
+
+    <h3>4. Method getTime()</h3>
+    <p>Rückgabewert: Milisekunden seit 01.01.1970</p>
+    <p id="output4"></p>
+
+    <h3>5. Method getFullYear()</h3>
+    <p id="output5"></p>
+
+    <h3>6. Method setDate()</h3>
+    <p id="output6"></p>
+
+    <h3>Übung Uhr</h3>
+    <p id="currentTime"></p>
+    
+    <script>
+        let myDate = new Date();
+        output1.innerHTML = "myDate: " + myDate;
+        console.log("myDate: " + myDate);
+        console.log("myDate instanceof Date: " + myDate instanceof Date);//false
+        output2.innerHTML = "myDate.getDate(): " + myDate.getDate();
+        output3.innerHTML = "myDate.getDay(): " + myDate.getDay();
+        output4.innerHTML = "myDate.getTime(): " + myDate.getTime();
+        output5.innerHTML = "myDate.getFullYear(): " + myDate.getFullYear();
+        output6.innerHTML = "myDate.getDate(myDate.setDate(15)): " + myDate.getDate(myDate.setDate(15));
+       /* toLocalTimeString() zum Formatieren der Zeitausgabe */
+       /* getMonth gibt 0-11 zurück */
+
+       function tick() {
+           let d = new Date();
+           d = d.toLocaleTimeString();
+           currentTime.innerHTML = d;
+       }
+       setInterval('tick();', 1000);
+   
+    </script>
+</body>
+</html>

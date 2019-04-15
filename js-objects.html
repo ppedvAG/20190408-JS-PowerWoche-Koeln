@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Objekte</title>
+</head>
+<body>
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <p id="output3"></p>
+    <p id="output4"></p>
+    <p id="output5"></p>
+    <p id="output6"></p>
+
+    <script>
+
+        /* anonyme Objekte */
+
+        let myPerson = {
+            vorname : "Max",
+            nachname: "Mustermann",
+            getName: function(){
+                return this.nachname + ", " + this.vorname;
+            }
+        }
+        output1.textContent = "myPerson.getName(): " + myPerson.getName();
+
+        output2.textContent = "myPerson.vorname: " + myPerson.vorname;
+
+        output3.textContent = "myPerson['nachname']: " + myPerson['nachname'];
+
+        /* Objekte mit Konstruktoren */
+        
+        function Address(street, housenr, zipcode, city) {
+            this.street = street;
+            this.housenr = housenr;
+            this.zipcode = zipcode;
+            this.city = city;
+            this.getAddress = function(){
+            return this.street + " " + this.housenr + "<br>" + this.zipcode + " " + this.city; 
+        };
+        }
+
+        let myAddress = new Address('Hauptstraße', 34, 45677, 'Köln');
+        let myAddress1 = new Address('Hauptstraße', 34, 45677, 'Köln');
+        let myAddress2 = new Address('Hauptstraße', 34, 45677, 'Köln');
+
+        output4.innerHTML = myAddress.getAddress();
+
+        /* Dynamisches Hinzufügen von Eigenschaften */
+        myAddress.houseadding = "a";
+        console.log(myAddress);
+        /* Nicht nur bei true werden die Anweisungen ausgeführt,
+        sondern auch bei irgendeinem Wert, Hauptsache nicht undefined und null */
+        if(myAddress.houseadding) {
+            output5.textContent = "Property houseadding exists";
+        } else {
+            output5.textContent = "nicht da";
+        }
+
+        /* der schnellere Zugriff auf Objekteigenschaften */
+
+        with(myPerson) {
+            vorname = "Willy";
+            nachname = "Naumann";
+            output6.textContent = getName(); 
+        }
+        if (myAddress instanceof Address) {
+            console.log("ja");
+        } else {
+            console.log("nein");
+        }
+        /* Vergleich von Objekten liefert immer false! */
+        if (myAddress1 === myAddress2) {
+            console.log("Objekte sind gleich");
+        } else {
+            console.log("Objekte ungleich");
+        }
+        
+
+
+
+
+
+
+                /* function Person(name){
+            this.name = name;
+        }
+        console.log(typeof Person); //function
+        let myPerson = new Person('Max');
+        console.log(typeof myPerson); //object */
+
+    
+    </script>
+    
+</body>
+</html>

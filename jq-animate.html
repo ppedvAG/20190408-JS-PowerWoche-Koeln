@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Animate Method</title>
+    <style>
+    div {
+        /* border: thin solid black; */
+            border-color: black;
+            border-width: 0;
+            /* ohne border-style ist border-width nicht animierbar */
+            border-style: solid;
+            
+        }</style>
+    
+
+</head>
+<body>
+    <p>animierbar sind nur numerische css eigenschaften!</p>
+    <div>div zum animieren</div>
+    <button>animate</button>
+
+    <script>
+        $(function(){
+            $('button').click(function(){
+                /* $('div').animate({}, miliseconds, function) */
+                var test = 
+                $('div').animate({
+                    /* px ist default */
+                    width: '400',
+                    height: '400',
+                    'border-width' : '10'
+                }, 4000);
+                console.log(test); //Object { 0: div, length: 1, prevObject: Object(1) }
+            });
+        });
+    
+    </script>
+    
+</body>
+</html>

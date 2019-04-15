@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BOM navigator object</title>
+
+</head>
+<body>
+    <!-- (h3{$. Property}+p#output$)*8 -->
+    <h3>1. Property appCodeName</h3>
+    <p id="output1"></p>
+    <p id="output1_1"></p>
+
+    <h3>2. Property appName</h3>
+    <p id="output2"></p>
+
+    <h3>3. Property appVersion</h3>
+    <p id="output3"></p>
+
+    <h3>4. Property userAgent </h3>
+    <p id="output4"></p>
+
+    <h3>5. Property platform</h3>
+    <p id="output5"></p>
+
+    <h3>6. Property language</h3>
+    <p id="output6"></p>
+
+    <h3>7. Property javaEnabled()</h3>
+    <p id="output7"></p>
+
+    <h3>8. Property plugins</h3>
+    <p id="output8"></p>
+    <p id="output8_1"></p>
+
+    <script>
+
+        output1.textContent = "<h1>" + navigator.appCodeName + "</h1>";
+        output1_1.innerHTML = "<h1>" + navigator.appCodeName + "</h1>";
+        output2.innerHTML = "" + navigator.appName;
+        output3.innerHTML = "" + navigator.appVersion;
+        output4.innerHTML = "" + navigator.userAgent;
+        output5.innerHTML = "" + navigator.platform;
+        output6.innerHTML = "" + navigator.language;
+        output7.innerHTML = "" + navigator.javaEnabled();
+        output8.innerHTML = "" + navigator.plugins;
+        output8_1.innerHTML =
+        'Plugin(s) <br>' +
+        '<table id="pluginTable"><thead>' +
+        '<tr><th>Name</th><th>Filename</th><th>Description</th><th>Version</th></tr>'+
+        '</thead><tbody></tbody></table>';
+
+        let table = pluginTable;
+
+        for (let i = 0; i < navigator.plugins.length; i++) {
+            let newRow = table.insertRow();
+            newRow.insertCell().textContent = navigator.plugins[i].name;
+            newRow.insertCell().textContent = navigator.plugins[i].filename;
+            newRow.insertCell().textContent = navigator.plugins[i].description;
+            newRow.insertCell().textContent = navigator.plugins[i].version;
+        } 
+
+
+
+    
+    </script>
+    
+</body>
+</html>

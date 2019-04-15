@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Emmet</title>
+    <style>
+        div {
+            background-color:cornsilk;
+        }
+    </style>
+</head>
+<body>
+    <p>früher: zen coding</p>
+    <!-- verschachtelt -->
+    <!-- div>p*2 -->
+    <div>
+        <p></p>
+        <p></p>
+    </div>
+
+    <!-- benachbart / geschwister -->
+    <!-- div>h3+img+p -->
+    <div>
+        <h3></h3>
+        <img src="" alt="">
+        <p></p>
+    </div>
+
+    <!-- HTML Inhalt & Nummerierung -->
+    <!-- div>h3{inhalt h3}+img+p{inhalt p} -->
+    <div>
+        <h3>inhalt h3</h3>
+        <img src="" alt="">
+        <p>inhalt p</p>
+    </div>
+
+    <!-- Attribute -->
+    <!-- div>h3{inhalt h3}+img[src="https://picsum.photos/200/300/?random$"]*3+p{inhalt p} -->
+     <div>
+        <h3>inhalt h3</h3>
+        <img src="https://picsum.photos/200/300/?random1" alt="">
+        <img src="https://picsum.photos/200/300/?random2" alt="">
+        <img src="https://picsum.photos/200/300/?random3" alt="">
+        <p>inhalt p</p>
+    </div>
+
+
+
+    
+</body>
+</html>

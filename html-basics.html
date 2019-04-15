@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML Grundlagen</title>
+    <style>
+      #myIdBorder {
+        border: 2px dotted blue;
+        /* ODER: */
+        border-width: 2px;
+        border-style: dotted;
+        border-color: blue;
+
+      }
+      /* alle h1 werden angesprochen */
+      h1 {
+          font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Überschrift (Heading) h Rang 1</h1>
+    <H1 style="text-decoration: underline">Überschrift (Heading) H Rang 1</H1>
+    <p>obere Überschrift hat ein HTML-Attribut style. Dieses hat nur für diese einen Einfluss.</p>
+    <h1>Test heading</h1>
+    <!-- Kommentar -->
+    <h2 id="myIdBorder" class="myClass">Heading2</h2>
+    <h3 id="myH3">Heading3</h3>
+
+    <p id="myIdBorder" class="myClass">
+      Lorem ipsum dolor sit amet.
+      <a href="https://ppedv.de">ppedv AG</a>
+    </p>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus,
+      voluptatum? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Dolores deleniti nobis, sed, fugit sunt itaque mollitia distinctio minus
+      explicabo dolor laborum cum voluptatum repellat adipisci? Sint suscipit
+      nostrum vel ullam.
+    </p>
+
+    <script>
+      document.getElementById("myH3").innerHTML =
+        "über js geänderte Ü Heading3";
+      myH3.style.color = "red";
+      console.log(myH3);
+      let borderEl = myIdBorder;
+      /* in Chrome und Edge - Collection, in FF - das erste El */
+      console.log("borderEl: " + borderEl); //borderEl: [object HTMLHeadingElement]
+      let classEl = document.getElementsByClassName("myClass");
+      console.log("classEl: " + classEl); //classEl: [object HTMLCollection]
+      console.log("classEl.length: " + classEl.length);
+    </script>
+  </body>
+</html>

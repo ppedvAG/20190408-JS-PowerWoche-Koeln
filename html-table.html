@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tabellen</title>
+    <style>
+      td,
+      th {
+        width: 300px;
+        height: 100px;
+        background-color: cyan;
+        /* border: thin solid blue; */
+      }
+      table {
+        /* border-collapse: collapse; */
+        /* border-width: 2px;
+        border-style: solid; /* ohne style ist border nicht sichtbar */
+        /* border-color: blue;  */
+        background-color: blue;
+      }
+      tr:nth-child(even) td{
+          background-color:rgb(0, 98, 255);
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>tag table</li>
+      <li>tag tr - table row</li>
+      <li>tag thead - table heading</li>
+      <li>tag th - cell in heading</li>
+      <li>tag tbody - table body</li>
+      <li>tag td - table data (table cell)</li>
+      <li>tag tfoot - table foot</li>
+    </ul>
+
+    <!-- table>caption+(thead>tr>th*4)+(tbody>tr*4>td*4)+tfoot -->
+
+    <table>
+      <caption>Tabellen Überschrift</caption>
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tfoot>
+      <p>tfoot mit Zellen wird unten dargestellt, mit text aber oben</p>
+    </table>
+  </body>
+</html>

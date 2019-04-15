@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Eigene Methoden</title>
+    <style>
+        div {
+            border: 2px solid black;
+            width: 150px;
+            height: 150px;
+            background-color: midnightblue
+            ;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- div#div${Division $}*4 -->
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+
+    <script>
+        $(function(){
+            $.fn.makeRound = function() {
+                this.css('border-radius', '50%');
+                this.css('border-width', '4px');
+
+                return this;
+            }
+            $('div').click(function(){
+                $(this).makeRound();
+            })
+        });
+    
+    </script>
+    
+</body>
+</html>

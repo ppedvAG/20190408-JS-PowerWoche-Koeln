@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pfeilfunktion</title>
+</head>
+<body>
+        
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <p id="output3"></p>
+    <p id="output4"></p>
+    <p id="output5"></p>
+    <p id="output6"></p>
+    
+
+
+    <script>
+        let elements = ["Kupfer", "Eisen", "Magnesium", "Aluminium"];
+        let results = [];
+
+        /* anonyme funktion */
+        results = elements.map(function(el) {
+            return el.length;
+        })
+        output1.innerHTML = "1. " + results;
+
+        /* arrow function */
+        /* ohne Schlüsselwort function  */
+        results = elements.map((el) => {
+            return el.length;
+        })
+        output2.innerHTML = "2. " + results;
+
+        /* wenn nur eine return-Anweisung, geschw. Klammern und Wort return optional */
+        results = elements.map((el) => el.length);
+        output3.innerHTML = "3. " + results;
+
+        /* wenn nur ein Argument, runde Klammern optional */
+        /* wenn kein Argument, dann runde Klammern obligatorisch */
+        results = elements.map(el => el.length);
+        output4.innerHTML = "4. " + results;
+
+        /* interpolation */
+        results = elements.map(({length: fooVar}) => fooVar);
+        output5.innerHTML = "5. " + results;
+
+        /* interpolation kürzer*/
+        results = elements.map(({length}) => length);
+        output6.innerHTML = "6. " + results;
+
+
+    </script>
+    
+</body>
+</html>

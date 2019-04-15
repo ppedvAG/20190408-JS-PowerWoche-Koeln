@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>jQ Grundlagen</title>
+</head>
+<body>
+    <p id="myPar">Das Element verschwinden lassen und wieder anzeigen</p>
+    <!-- Arrowfunction in inline-js -->
+    <button id="btn1" onclick="(() => myPar.style.display = 'none')()">Verstecken</button>
+    <button id="btn2">Anzeigen</button>
+
+    <script>
+        //$(document).ready(function(){});
+        /* ODER: */
+        //jQuery(document).ready(function(){});
+        /* ODER:  */
+        //$(function(){
+ /*            $('#btn1').click(function(){
+                $('#myPar').hide();
+
+            }); */
+            /* $('#btn1').click(() => $('#myPar').hide()); //funktioniert
+            $('#btn2').click(function(){
+                $('#myPar').show();
+            });
+        }); */
+
+    
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Closures</title>
+</head>
+<body>
+    <p>Closures - Verschachtelungen, umschließen</p>
+    <label for="">X: </label>
+    <input type="number" id="inpX">
+    <label for="">Y: </label>
+    <input type="number" id="inpY">
+    <p id="output">output</p>
+    <button onclick="showResult()">Multiply</button>
+
+    <script>
+        function sendX(x) {
+            return function(y){
+                return x * y;
+            }
+        }
+        //fluent API in JS, chaining in JQ        
+
+        function showResult() {
+            let sendY = sendX(inpY.value); //function(y){return inpX.value * y;}
+            //let sendY = sendX(inpX.value); //function(y){return inpX.value * y;}
+            output.innerHTML = giveY(inpX.value);
+            // oder: multiply(inpX.value)(inpY.value);
+        }
+    
+    </script>
+
+
+    
+
+
+</body>
+</html>

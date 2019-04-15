@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array Object</title>
+</head>
+<body>
+    <!-- (h3{$. Method}+p#outpM$+p#outpA$)*8 -->
+    <h3>1. Method array.concat(array), RW: array</h3>
+    <p id="outpM1"></p>
+    <p id="outpA1"></p>
+
+    <h3>2. Method array.toString(), RW: string</h3>
+    <p id="outpM2"></p>
+    <p id="outpA2"></p>
+
+    <h3>3. Method array.join('trennzeichen') RW:string</h3>
+    <p id="outpM3"></p>
+    <p id="outpA3"></p>
+
+    <h3>4. Method array.indexOf(element), RW: number(index)</h3>
+    <p id="outpM4"></p>
+    <p id="outpA4"></p>
+
+    <h3>5. Method array.unshift(el), RW: number(length)</h3>
+    <p id="outpM5"></p>
+    <p id="outpA5"></p>
+
+    <h3>6. Method array.push(el), RW: number(length)</h3>
+    <p id="outpM6"></p>
+    <p id="outpA6"></p>
+
+    <h3>7. Method array.pop(), RW:</h3>
+    <p id="outpM7"></p>
+    <p id="outpA7"></p>
+
+    <h3>8. Method array.shift(), RW:</h3>
+    <p id="outpM8"></p>
+    <p id="outpA8"></p>
+
+    <h3>9. Method array.splice(), RW:</h3>
+    <p id="outpM9"></p>
+    <p id="outpA9"></p>
+
+    <h3>10. Method array.reverse(), RW:</h3>
+    <p id="outpM10"></p>
+    <p id="outpA10"></p>
+
+
+    <script>
+        
+        let bundesliga = ["Bayern", "Dortmund", "Berlin", "Leipzig"];
+        let regionalliga = ["Köln", "Hamburg"];
+        let rw;
+
+        rw = bundesliga.concat(regionalliga);
+        outpM1.textContent = "rw: " + rw;
+        outpA1.textContent = "array: " + bundesliga;
+
+        outpM2.textContent = "rw: " + rw;
+        outpA2.textContent = "array: " + bundesliga;
+
+        outpM3.textContent = "rw: " + rw;
+        outpA3.textContent = "array: " + bundesliga;
+
+        outpM4.textContent = "rw: " + rw;
+        outpA4.textContent = "array: " + bundesliga;
+
+        rw = bundesliga.unshift('unshiftArg'); 
+        outpM5.textContent = "rw: " + rw;
+        outpA5.textContent = "array: " + bundesliga;
+
+        rw = bundesliga.push(regionalliga);
+        outpM6.textContent = "rw: " + rw;
+        outpA6.textContent = "array: " + bundesliga;
+
+        rw = bundesliga.pop(regionalliga);
+        outpM7.textContent = "rw: " + rw;
+        outpA7.textContent = "array: " + bundesliga;
+
+        outpM8.textContent = "rw: " + rw;
+        outpA8.textContent = "array: " + bundesliga;
+
+        outpM9.textContent = "rw: " + rw;
+        outpA9.textContent = "array: " + bundesliga;
+
+        outpM10.textContent = "rw: " + rw;
+        outpA10.textContent = "array: " + bundesliga;
+    </script>
+    
+</body>
+</html>

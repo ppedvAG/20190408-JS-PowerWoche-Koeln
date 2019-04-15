@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test 2</title>
+</head>
+<body>
+    <script>
+        let myString = '[{"kategorie":"buch","preis":34,"seiten": 134},{"kategorie":"musikanlage","preis":334,"maßangaben":[23,34,22]},{"kategorie": "lautsprecher","preis": 134,"genauigkeit": "456"}]';
+
+        // myJson = new JSON(); //JSON is not a constructor!
+        let myJson = JSON.parse(myString);
+        //console.log(myJson);
+        //console.log(typeof myJson);
+        function getPreis () {
+            return this.preis;
+        }
+        for (let x of myJson) {
+            getPreisFromAll = getPreis.bind();
+            gesamtpreis += getPreisFromAll();
+            //...
+        }
+        
+        
+        </script>
+    
+</body>
+</html>

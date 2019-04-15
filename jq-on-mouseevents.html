@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>jQ on Methode</title>
+    <style>
+      div {
+        width: 300px;
+        height: 300px;
+        border: 20px groove green;
+        /* groove - dt. gewölbt */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="divId"></div>
+    <p id="output"></p>
+
+    <script>
+      $(function() {
+        /* on(object) */
+        /* mouseevents reagieren auch auf touchpad */
+        $("#divId").on({
+          click: function() {
+            $("#output").text("Meldung aus Click");
+          },
+          mouseenter: function() {
+            $("#output").text("Meldung aus mouseenter");
+          },
+          mouseleave: function() {
+            $("#output").text("Meldung aus mouseleave");
+          },
+          mouseover: function() {
+            $("#output").text("Meldung aus mouseover");
+          },
+          hover: function() {
+            $("#output").text("Meldung aus hover");
+          },
+          mousedown: function() {
+            $("#output").text("Meldung aus mousedown");
+          },
+          mouseup: function() {
+            $("#output").text("Meldung aus mouseup");
+          },
+          mousemove: function() {
+            $("#output").text("Meldung aus mousemove");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

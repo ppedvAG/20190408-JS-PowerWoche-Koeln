@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS box, inline- & block-Elemente</title>
+    <style>
+    * {
+        border: 10px solid;
+        box-sizing: border-box;
+    }
+    html {
+        padding: 0;
+    }
+    body {
+        margin: 30px;
+        padding: 10px;
+    }
+    span {
+        margin: 10px;
+        padding: 10px;
+        width: 300px;
+    }
+    div {
+        width: 300px;
+        margin: 10px;
+    }
+    #container {
+        width: initial;/* 100% */
+       
+    }
+    .items {
+        background-color:coral;
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        margin: 30px;
+        padding: 10px;
+    }
+    </style>
+</head>
+<body>
+    <p>Block-Elemente sind 100% breit von Eltern-Element, inline - so breit, wie für Inhalt nötig</p>
+    <p>Block- und Inline Elemente akzeptieren padding-Eigenschaft. 
+        Bei Inline-Elementen hat margin eine Wirkung nur links und rechts,
+    bei Block-El von allen vier Seiten.
+Margin zwischen zwei Block-Elementen ist gleich Abstand vom Rahmen zum Rahmen.
+Margin zwischen einem Block- und Inline-Element ist gleich Abstand vom Rahmen vom Block-Element zum Inhalt vom Inline-Element.
+</p>
+
+    <p>Block-Elemente akzeptieren Maßangaben, inline - nicht</p>
+    <h1>heading1</h1>
+    <p>paragraph</p>
+    <span>span</span>
+    <a href="#">ancer</a>
+    <img src="https://picsum.photos/200" alt="ein Bild">
+    <div>division</div>
+    <header>header</header>
+
+    <div id="container">
+        <div class="items">div</div>
+        <div class="items">div</div>
+        <div class="items">div</div>
+        <div class="items">div</div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>jQ Selektoren</title>
+    <style>
+/*     p:hover {
+        color: blue;
+    }
+    p::first-letter {
+        font-size: 1.5em;
+    } */
+/*     div:after {
+        content: ' adding durch after'
+    } */
+
+    </style>
+</head>
+<body>
+    <!-- div.testClass{Div mit Klasse}*4 -->
+    <div class="testClass">Div mit Klasse</div>
+    <div class="testClass">Div mit Klasse</div>
+    <div class="testClass">Div mit Klasse</div>
+    <div class="testClass">Div mit Klasse</div>
+    <!-- div#testId${Div mit ID}*4 -->
+    <div id="testId1">Div mit ID</div>
+    <div id="testId2">Div mit ID</div>
+    <div id="testId3">Div mit ID</div>
+    <div id="testId4">
+        <p id="pInDiv">P in Div</p>
+        <p>P in Div</p>
+    </div>
+    <div>Div ohne Klasse ohne ID</div>
+
+    <script>
+        $(function(){});
+        //universal
+        //$('*').css('color','red');
+        //in js: style.color = "red";
+        
+        //id-selector
+        //$('#testId2').css('color','red');
+
+        //class-selector
+        //$('.testClass').css('color','red');
+
+        //tag-selector
+        //$('div').css('color','red');        
+
+        //selector:contains(text)
+        //$('div:contains(ohne)').css('color','red');
+
+        //this selector
+
+        //KOMBINATOREN
+        //-Geschwister (,)
+        //$('').css('color','red');
+
+        //-Eltern>Kind / Eltern Kind
+        //$('div>p').css('color','red');
+        //$('div p').css('color','red');
+
+        //PSEUDOSELEKTOREN
+        //Pseudoklassen (z.B. p:hover)
+        //funktioniert nicht in jQ
+        //$('p:hover').css('color','red');
+        //$('div:after').css('content', '"text"');
+
+        //Pseudoelemente (z.B. p::first-letter)
+        //funktioniert nicht in jQ
+        //$('p::first-letter').css('color','red');
+    
+    </script>
+
+
+    
+</body>
+</html>

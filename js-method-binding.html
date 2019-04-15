@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Binding von Methoden</title>
+  </head>
+  <body>
+    <!-- (h3{output$}+p#output$)*3 -->
+    <h3>output1</h3>
+    <p id="output1"></p>
+
+    <h3>output2</h3>
+    <p id="output2"></p>
+
+    <h3>output3</h3>
+    <p id="output3"></p>
+
+    <script>
+        //let x = 9;
+        /* wo gehört die let variable hin, wenn nicht zu window? */
+      //x = 9;
+      let object1 = {
+        x: 81,
+        irgendwas: 12,
+        getX: function() {
+          return this.x;
+        }
+      };
+      
+      /* () => {return this.x} */
+      let object2 = {
+        x: 30,
+        nochwas: 34
+      };
+      let object3 = {
+        x: 50,
+        hersteller: "siemens"
+      };
+
+      console.log(object1.getX);
+      let getXMethod = object1.getX;
+      function getXMethod () {
+          return this.x;
+      }
+      console.log(getXMethod);
+      let xFrom1 = getXMethod(); //undefined
+      output1.textContent = "xFrom1: " + xFrom1;
+      
+      let getXFromObj2 = getXMethod.bind(object2);
+      output2.textContent = "getXFromObj2(): " + getXFromObj2();
+      let getXFromObj3 = getXMethod.bind(object3);
+      output3.textContent = "getXFromObj3(): " + getXFromObj3();
+    </script>
+  </body>
+</html>

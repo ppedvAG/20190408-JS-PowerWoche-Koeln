@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JavaScript Grundlagen</title>
+  </head>
+  <body>
+    schau mal in die Konsole
+
+    <script>
+      /* Variablen var & let */
+
+      var v = 3;
+      let l = 4;
+
+      /**
+       * Let lässt sich nicht redeklarieren
+       * nicht mit let, nicht mit var */
+      var v = 5;
+      //let l = 6; //SyntaxError: redeclaration of let l
+      //var l = 4;
+
+      /* let Variablen werden nicht ins Objekt window gespeichert */
+      console.log("window object: " + window);
+      console.log("window.v: " + window.v);
+      console.log("window.l: " + window.l); //undefined
+
+      /* Scopes - Gültigkeitsbereiche */
+      /* let kennt den Scope {} */
+      {
+        v = 6;
+        let l = 6;
+        console.log("let l in {}: " + l);
+      }
+      console.log("var v: " + v);
+      console.log("let l außerhalb von {}: " + l);
+
+      /* template strings */
+      console.log(`var v: ${v} in einem template-string`);
+
+      /* Addieren */
+      let zahl = 3;
+      let text = "3";
+      let etwas = zahl + text;
+      console.log("etwas: " + etwas);
+      console.log("typeof etwas: " + typeof etwas); //string
+
+      /* Wert und Typ Vergleich */
+      let bool = zahl == text;
+      console.log("zahl == text: " + bool);
+      bool = zahl === text;
+      console.log("zahl === text: " + bool);
+
+      /* Casting */
+      /* von string zu number */
+      console.log("typeof +text: " + typeof +text);
+      //console.log("typeof text.toNumber(): " + typeof text.toNumber()); //not a function
+      /* von number zu string */
+      console.log("typeof zahl.toString(): " + typeof zahl.toString());
+
+      /* Objekte */
+      let obj = { key1: "value1", key2: "value2", key3: true, key4: 4 };
+      console.log("typeof obj: " + typeof obj);
+
+      /* vordefinierte Objekte */
+      let myString = new String(text);
+      console.log(myString); //String { "3" }
+      console.log("typeof myString: " + typeof myString);
+
+      /* Arrays & Konstanten */
+      const pi = 3.14;
+      //pi = 3.145; //TypeError: invalid assignment to const `pi'
+
+      const cities = ["Bonn", "Köln", "Stuttgart"];
+      console.log(cities); //Array(3) [ "Bonn", "Köln", "Stuttgart" ]
+      /* ist änderbar, obwohl const */
+      cities[1] = "Baden-Baden";
+      console.log(cities); //Array(3) [ "Bonn", "Baden-Baden", "Stuttgart" ]
+      console.log("typeof cities: " + typeof cities); //object
+    </script>
+  </body>
+</html>

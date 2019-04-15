@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>ajax method</title>
+  </head>
+  <body>
+      <h3>outputSuccess</h3>
+    <p id="outputSuccess">outputSuccess</p>
+    <h3>outputDone</h3>
+    <p id="outputDone">outputDone</p>
+    <button id="btnGet">get</button>
+    <button id="btnPost">post</button>
+
+    <script>
+      $(function() {
+        $("#btnGet").click(function() {
+          $.ajax({
+            url: "https://jsonplaceholder.typicode.com/todos",
+            success: function(data) {
+              //$("#outputSuccess").text(data);
+              $("#outputSuccess").text(data.length); //200
+              //$('#outputSuccess').text( typeof data); //object - json array
+            }
+          }).done(function() {
+            $("#outputDone").text("feierabend");
+          });
+        });
+
+        $("#btnPost").click(function() {
+          $.ajax({
+            type: "POST",
+            url: "https://jsonplaceholder.typicode.com/todos",
+            data: {
+              userid: 11,
+              /* id: 201, */ //id wird vom server erstellt
+              title: "foo",
+              completed: false
+            }
+          }).done(function(data) {
+            $("#outputDone").text(data.id);
+          });
+        });
+      });
+      //ajax()
+    </script>
+  </body>
+</html>
